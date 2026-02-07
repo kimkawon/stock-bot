@@ -1,0 +1,26 @@
+name: Daily Stock Scan
+
+on:
+  schedule:
+    # 영국 시간 기준 (UTC). 한국 시간 오후 3시 31분은 UTC로 오전 6시 31분입니다.
+    - cron: '31 6 * * 1-5'
+  workflow_dispatch: # 수동으로도 실행 가능하게 함
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install finance-datareader pandas requests
+
+      - name: Run script
+        run: python "매우 까다로운 급등주 찾기.py" # 본인의 파일명으로 수정하세요!
