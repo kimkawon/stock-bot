@@ -23,4 +23,4 @@ jobs:
           pip install finance-datareader pandas requests
 
       - name: Run script
-        run: python "매우 까다로운 급등주 찾기.py" # 본인의 파일명으로 수정하세요!
+        run: python "bot.py" # 본인의 파일명으로 수정하세요!
